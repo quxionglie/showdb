@@ -1,0 +1,70 @@
+type GetDatabasesRequest {}
+
+type GetDatabasesResponse {
+	database []Database `json:"databases"`
+}
+
+type GetTablesRequest {
+	DbName string `form:"dbName"` // 必填参数
+}
+
+type GetTablesResponse {
+	tables []Table `json:"tables"`
+}
+
+type GetColumnsRequest {
+	DbName    string `form:"dbName"`
+	TableName string `form:"tableName"`
+}
+
+type GetColumnsResponse {
+	columns []Column `json:"columns"`
+}
+
+type Database {
+	DbName    string  `json:"dbName"`
+	DbComment string  `json:"dbComment"`
+	DbType    string  `json:"dbType"`
+	tables    []Table `json:"tables"`
+}
+
+type Table {
+	TableName    string `json:"tableName"`
+	TableComment string `json:"tableComment"`
+	CreateTime   string `json:"createTime"`
+}
+
+type Column {
+	ColumnName    string `json:"columnName"`
+	IsRequired    string `json:"isRequired"`
+	IsPk          string `json:"isPk"`
+	Sort          int32  `json:"sort"`
+	IsIncrement   string `json:"isIncrement"`
+	ColumnType    string `json:"columnType"`
+	ColumnComment string `json:"columnComment"`
+	ColumnDefault string `json:"columnDefault"`
+}
+
+type ShowCreateTableRequest {
+	DbName    string `form:"dbName"`
+	TableName string `form:"tableName"`
+}
+
+type ShowCreateTableResponse {
+	ddl string `json:"ddl"`
+}
+
+service showdb-api {
+	@handler getDatabases
+	get /api/getDatabases (GetDatabasesRequest) returns (GetDatabasesResponse)
+
+	@handler getTables
+	get /api/getTables (GetTablesRequest) returns (GetTablesResponse)
+
+	@handler getColumns
+	get /api/getColumns (GetColumnsRequest) returns (GetColumnsResponse)
+
+	@handler showCreateTable
+	get /api/showCreateTable (ShowCreateTableRequest) returns (ShowCreateTableResponse)
+}
+

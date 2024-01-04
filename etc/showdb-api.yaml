@@ -1,0 +1,32 @@
+Name: showdb-api
+Host: 0.0.0.0
+Port: 18888
+Timeout: 60000 # 60s，api请求的响应超时时间
+
+# 目前支持mysql,oracle.pg数据库，可根据需要配置多个数据库
+databases:
+  - name: 'testdb'
+    dbType: 'mysql'
+    host: localhost
+    port: 3306
+    username: root
+    password: "root123"
+    database: test
+    charset: utf8mb4
+#  - name: 'xxx'
+#    dbType: 'oracle'
+#    host: 192.168.0.96
+#    port: 1528
+#    username: xxx
+#    password: "xxx"
+#    database: xxx
+#    charset: utf8
+#    serverName: "uat" # for oracle
+#  - name: 'xxx'
+#    dbType: 'pg'
+#    host: xxx
+#    port: 9031
+#    username: postgres
+#    password: "xxx"
+#    database: xxx
+#    charset: utf8

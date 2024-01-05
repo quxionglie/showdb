@@ -1,0 +1,5 @@
+/*react antd menu给二级菜单子元素添加滚动条*/
+.ant-menu-sub{
+  height: 500px;
+  overflow-y: scroll;
+}

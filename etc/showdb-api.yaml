@@ -10,8 +10,8 @@ databases:
     host: localhost
     port: 3306
     username: root
-    password: "root123"
-    database: test
+    password: "5VUd6Qoj7GuF97&x"
+    database: showdb
     charset: utf8mb4
 #  - name: 'xxx'
 #    dbType: 'oracle'
